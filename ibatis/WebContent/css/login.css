@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+@import url("jquery-ui.css");
+
+@import url("jquery.ui.theme.css");
+
+@import url("jquery-ui-timepicker-addon.css");
+
+@import url("jquery.qtip.min.css");
+
+@import url("jquery.jqzoom.css");
+
+.ans{
+			display: inline-block;
+			width: 100px;
+			height: 25px;
+			line-height: 25px;
+			text-align: right;
+			font-size: 18px;
+			font-family: "微软雅黑", "宋体";
+			color: #222222;
+		}
+		.login-input{
+			width: 200px;
+			height: 25px;
+			line-height: 25px;
+			font-family: "微软雅黑", "宋体";
+			font-size: 18px;
+			color: #444444;
+			
+		}
+		.login-button{
+			position: absolute;
+			border: none;
+			width: 80px;
+			height: 30px;
+			line-height: 25px;
+			background-image : url('images/quicklink-button-hover.png');
+			background-repeat: no-repeat;
+			font-family: "微软雅黑", "宋体";
+			font-size: 16px;
+			color: #FFFFFF;
+			cursor: pointer;
+		}

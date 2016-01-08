@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap >
+  <typeAlias type="com.baokang.domain.User" alias="login"/>
+  <resultMap id="loginTest" class="login" >
+    <result column="yhm" property="yhm" jdbcType="VARCHAR" />
+    <result column="mm" property="mm" jdbcType="VARCHAR" />
+  </resultMap>
+
+   <!-- 根据用户名获得用户对象 -->
+   <select id="getUsersByYhm" resultMap="loginTest">
+    SELECT
+      YHM	as "yhm",  <!-- 用户名 -->
+	MM	as "mm"  <!-- 密码-->
+	from manager WHERE 1=1
+     <isNotEmpty prepend=" AND " property="yhm">
+			yhm = #yhm#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="mm">
+			mm = #mm#
+		</isNotEmpty>
+  </select> 
+ 
+</sqlMap>

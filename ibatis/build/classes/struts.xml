@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+<struts>    
+        <package name="user" namespace="/" extends="struts-default">
+              <action name="user.*" class="com.baokang.action.UserAction" method="{1}">  
+                <result name="login">/hehe.jsp</result>
+                <result name="error">/faild.jsp </result>
+        </action>
+        </package>
+        <package name="student" namespace="/" extends="struts-default">
+              <action name="student.*" class="com.baokang.action.StudentAction" method="{1}">  
+                <result name="list">/index.jsp</result>
+                <result name="error">/faild.jsp </result>
+        </action>
+        </package>
+        
+</struts>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap >
+<!--   <typeAlias type="com.baokang.domain.Student" alias="login"/> -->
+<!--   <resultMap id="loginTest" class="student" > -->
+<!--     <result column="number" property="yhm" jdbcType="int" /> -->
+<!--     <result column="mm" property="mm" jdbcType="VARCHAR" /> -->
+<!--   </resultMap> -->
+
+   <!-- 根据用户名获得用户对象 -->
+   <select id="getStudentByStu" parameterClass="com.baokang.domain.Student" resultClass="com.baokang.domain.Student">
+    SELECT
+      NUMBER      as  "number",         <!-- 学号 -->
+	  NAME	      as  "name"  ,         <!-- 姓名-->
+	  AGE	      as  "age"  ,          <!-- 年龄-->
+	  SEX	      as  "sex"  ,          <!-- 性别-->
+	  DEPT	      as  "dept"  ,         <!-- 院系-->
+	  SCHOOL	  as  "school"  ,       <!-- 学校-->
+	  PROFESSION  as  "profession"      <!-- 专业-->
+	from student WHERE 1=1
+     <isNotEmpty prepend=" AND " property="number">
+			number = #number#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="name">
+			name = #name#
+		</isNotEmpty>
+		<isNotEmpty prepend=" AND " property="age">
+			age = #age#
+		</isNotEmpty>
+  </select> 
+  
+  <insert id="insertStudent" parameterClass="com.baokang.domain.Student">
+  INSERT INTO STUDENT(NUMBER,   <!-- 学号 -->
+                    NAME,        <!-- 姓名 -->
+                    AGE,         <!-- 年龄-->
+                    SEX,         <!-- 性别 -->
+                    DEPT,        <!-- 院系 -->
+                    SCHOOL,      <!-- 学校 -->
+                    PROFESSION   <!-- 专业 -->
+                  )
+    VALUES(#number:NUMERIC#,#name:VARCHAR#,#age:NUMERIC#,#sex:VARCHAR#,
+           #dept:VARCHAR#,#school:VARCHAR#,#profession:VARCHAR#)
+  </insert>
+ 
+</sqlMap>
